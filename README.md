@@ -32,6 +32,7 @@ The interaction between the logic layer(Controllers) and the data layer(Database
     - [Overriding the http.server.SimpleHTTPRequestHandler to handle json responses](#overriding-the-httpserversimplehttprequesthandler-to-handle-json-responses)
     - [Setting up the PYTHONPATH accordingly in execution time](#setting-up-the-pythonpath-accordingly-in-execution-time)
     - [Setting up the mockserver for testing the API endpoints](#setting-up-the-mockserver-for-testing-the-api-endpoints)
+    - [Using dotenv library to "hide" sensitive information from git repositories](#using-dotenv-library-to-hide-sensitive-information-from-git-repositories)
 
 
 ## Getting started
@@ -50,7 +51,7 @@ Please make sure the following requirements are met before getting started
 
 Clone the app in a regular path and enter to the created folder
 ``` bash
-$ git clone https://github.com/jpmzx/real_estate_test_back.git
+$ git clone https://github.com/jpmzx/jpmzx-real_estate_back
 $ cd real_estate_test_back/
 ```
 
@@ -147,3 +148,6 @@ To review the coverage tests, be sure to open the generated file htmlcov / index
 ### Setting up the PYTHONPATH accordingly in execution time
 
 ### Setting up the mockserver for testing the API endpoints
+
+### Using dotenv library to "hide" sensitive information from git repositories
+ 
