@@ -5,11 +5,11 @@ about properties around the cities, Note: this is just a test case.
 
 ## App design strategy
 
-This app is meant to serve a set of REST APIs using a basic implementation of the Python's built-in http.server module and configurations files in order to declare routes, configurations, controllers and queries to the database(MySQL).
+This application is intended to serve a set of REST APIs using a basic implementation of Python's built-in http.server module and configuration files to declare paths, settings, drivers, and queries to the database (MySQL).
 
-Focusing on the specification of this test case (entire app), this app has been developed without using any python web framework such Django, Falcon, Flask, FastAPI, Tornado, etc. Instead, I opted for use the python's built-in http.server capabilities for the socket and TCP requests management and I focused on extending it to be able to manage 'application/json' requests. On the top, this project intents to serve as a minimal framework for build API REST endpoints managing http requests an returning valid http json responses.
+Focusing on the specification of this test case (full application), this application has been developed without using any Python web framework like Django, Falcon, Flask, FastAPI, Tornado, etc. Instead, I opted to use Python's built-in http.server capabilities for TCP and socket request handling and I concentrated on extending it to be able to handle 'application / json' requests. At the top, this project is intended to serve as a minimal framework for building API REST endpoints that handle http requests and return valid http json responses.
 
-The interaction between the logic layer(Controllers) and the data layer(Database) was built using pure SQL queries with help from standard Mysql connector for Python.
+The interaction between the logical layer (Drivers) and the data layer (Database) was created using pure SQL queries with the help of the standard Mysql connector for Python.
 
 ## Table of contents
 - [Real estate app - Backend](#real-estate-app---backend)
@@ -37,13 +37,13 @@ The interaction between the logic layer(Controllers) and the data layer(Database
 
 ## Getting started
 
-Follow up the following sub-topics in order to setup the envirnment, execute the web server, and work with the API Rest endpoints.
-
+Follow the subtopics below to set up your environment, run the web server, and work with Rest API endpoints. 
 ### OS Requirements
 
 Please make sure the following requirements are met before getting started
  - [git client](https://git-scm.com/downloads)
  - [Python >= 3.8](https://www.python.org/downloads/)
+ - python3-venv
  - A web client like [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download)
 
 
@@ -52,7 +52,7 @@ Please make sure the following requirements are met before getting started
 Clone the app in a regular path and enter to the created folder
 ``` bash
 $ git clone https://github.com/jpmzx/jpmzx-real_estate_back
-$ cd real_estate_test_back/
+$ cd jpmzx-real_estate_back/
 ```
 
 ### Creating a new virtual environment
@@ -84,7 +84,7 @@ More information about venv [here](https://docs.python.org/3/library/venv.html)
 In order to install the required python dependencies listed in requirements.txt file do:
 
 ```bash
-(.venv) $ python -m pip -r requirements.txt
+(.venv) $ python -m pip install -r requirements.txt
 ```
 
 ### Configuring the settings file
@@ -103,10 +103,10 @@ Use your preferred text editor to setup the configurations fill the values with 
 ```bash
 (.venv) $ python src/main.py
 ```
-
+Note: Press CTRL+C to stop the web server
 ## Making HTTP requests to the exposed REST APIs
 
-Open your preffered web client to make requests to the following API REST endpoints:
+Once you saw a message like "Starting http server at localhost: 5000" in your terminal, open your preferred webclient to make requests to the following API REST endpoints: 
 
 -   GET http://localhost:5000/property/public/
 -   GET http://localhost:5000/property/public/?city=bogota
@@ -115,11 +115,11 @@ Open your preffered web client to make requests to the following API REST endpoi
 -   GET http://localhost:5000/property/public/?year=2011&city=bogota
 -   GET http://localhost:5000/property/
 
-Feel free to import the file called postman-export.json to your installed Postman to facilitate the process of endpoints consumption.
 
+Feel free to import the file named postman-export.json into your installed Postman to ease the endpoint consumption process.
 ## Checking grammar and pep8 compliance
 
-In order to check the pep8 code compliance you can run the followinf commands, those commands will return an output in your terminal for each encountered non-compliant lines of code.
+To verify compliance with the pep8 standard, you can run the following commands, those commands will return an output in your terminal for each non-compliant line of code that it finds.
 
 ```bash
 (.venv) $ pycodestyle tests/*
@@ -128,26 +128,31 @@ In order to check the pep8 code compliance you can run the followinf commands, t
 
 ## Testing and code coverage
 
-This section explains how to execute tests an how those test script have been designed and developed.
+This section explains how to execute tests an how those test script have been designed and developed. 
 
 ### Testing strategy
 
-
-
+Writing specific test cases before starting the development of the functionality is an excellent way to save validations or unnecessary scope extensions, following the ideology of TDD (Test driven development) I have written specific test cases for the endpoints that allow to develop only the code necessary to fulfill them. 
 ### Executing the tests
 
 ```bash
 (.venv) $ pytest --cov-report html --cov=src tests/
 ```
-To review the coverage tests, be sure to open the generated file htmlcov / index.html in your browser after the pytest command execution is completed. 
+To review the coverage tests, be sure to open the generated htmlcov / index.html file in your browser after the pytest command completes. 
 
 ## Encountered problems and how I solved them
 
-### Overriding the http.server.SimpleHTTPRequestHandler to handle json responses 
+### Overriding the http.server.SimpleHTTPRequestHandler to handle json responses
+
+I had to inspect the library a bit, understand how the binary writing works on files that are the ones that finally serve as input and response to requests through sockets 
 
 ### Setting up the PYTHONPATH accordingly in execution time
 
+When different programs try to run the same python code from different locations in the local file system, module imports usually fail because by default the initial execution path is the only known one, to solve it and be able to correctly execute the test cases As well as executing the src / main.py from the root of the repository, I had to use the os and sys modules to register the execution root of the code in the PYTHONPATH (List of directories to detect python modules) 
+
 ### Setting up the mockserver for testing the API endpoints
 
+In order to test the test cases through http requests, I had to do a lot of research in different resources to generate a mockserver that would allow the execution of the test cases locally, in addition to implementing data parsing functions for the coding of the assertions. in test cases. 
 ### Using dotenv library to "hide" sensitive information from git repositories
- 
+
+It seems like a straightforward requirement, however, hiding sensitive execution credentials like passwords from public source code in a repository can be complex. Using dotenv I managed to use configuration files similar to those of bash to configure the execution configurations of the application from the root of the repository. 

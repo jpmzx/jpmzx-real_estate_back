@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "e2d17eb9-29c5-403b-83e5-9a1b8be09ed7",
+		"name": "Real estate Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "property - All fields",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "property public - All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/public/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "bogota",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "pre_venta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "property public - Filtering by city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/public/?city=bogota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "bogota"
+						},
+						{
+							"key": "status",
+							"value": "pre_venta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "property public - Filtering by year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/public/?year=2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020"
+						},
+						{
+							"key": "city",
+							"value": "bogota",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "pre_venta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "property public - Filtering by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/public/?status=pre_venta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "bogota",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "pre_venta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "property public - Filtering by city and year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/property/public/?year=2011&city=bogota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"property",
+						"public",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2011"
+						},
+						{
+							"key": "city",
+							"value": "bogota"
+						},
+						{
+							"key": "status",
+							"value": "pre_venta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
