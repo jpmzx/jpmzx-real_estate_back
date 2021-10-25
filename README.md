@@ -42,8 +42,8 @@ Follow the subtopics below to set up your environment, run the web server, and w
 
 Please make sure the following requirements are met before getting started
  - [git client](https://git-scm.com/downloads)
- - [Python >= 3.8](https://www.python.org/downloads/)
- - python3-venv
+ - [Python](https://www.python.org/downloads/) >= 3.8
+ - python3-venv (Usually comes with python 3.3+ versions)
  - A web client like [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download)
 
 
@@ -64,6 +64,9 @@ python3 -m venv .venv
 
 ### Activating the virtualenv
 
+Once the virtualenv is created, proceed to activate it using your
+operating system command from the following table
+
 |Platform   |Shell   |Command to activate virtual environment|
 |---|---|---|
 |POSIX   |bash/zsh   |$ source .venv/bin/activate|
@@ -73,10 +76,13 @@ python3 -m venv .venv
 |WINDOWS   |cmd.exe   |C:\> .venv\Scripts\activate.bat|
 |WINDOWS   |PowerShell   |PS C:\> .venv\Scripts\Activate.ps1|
 
+i.e using bash in linux
+
 ```bash
 $ source .venv/bin/activate
 (.venv) $
 ```
+Note that the (.venv) should appear at the beginning of the line after activating your virtualenv
 More information about venv [here](https://docs.python.org/3/library/venv.html)
 
 ### Installing python dependencies
@@ -99,6 +105,8 @@ Use your preferred text editor to setup the configurations fill the values with 
 ```
 
 ### Starting the web server
+
+Execute the following line to start the web server using the .env file settings
 
 ```bash
 (.venv) $ python src/main.py
